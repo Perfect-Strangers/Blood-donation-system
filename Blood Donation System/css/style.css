@@ -1,0 +1,533 @@
+body {
+	margin: 0px 0px 0px 0px;
+	background-color: #f4f4f4;
+	background-image: url('../images/blood-donation.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+/*.operation:before {
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	-webkit-filter: blur(20px);
+}
+
+.operation {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 0;
+}*/
+
+header {
+	font-family: Segoe UI;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	height: 80px;
+	width: 100%;
+	background-color: rgba(45,45,45,.7);
+	color: white;
+	border-bottom: solid 1px rgba(45,45,45,.9);
+	/*box-shadow: 0 10px 0 rgba(0,0,0,.2);*/
+}
+
+footer {
+	font-family: Segoe UI;
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+	height: 20px;
+	width: 100%;
+	font-size: 10px;
+	text-align: center;
+	background-color: rgba(45,45,45,1);
+	color: white;
+	border-top: solid 1px rgba(45,45,45,.9);
+}
+
+footer p {
+	margin: 0;
+}
+
+#top_title {
+	margin: 0px;
+}
+
+#title_text {
+	position: absolute;
+	margin: 13px 0px 0px 80px;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+#main_img {
+	position: absolute;
+}
+
+.button_div {
+	float: right;
+	padding: 20px;
+}
+
+/*#update {
+	height: 40px;
+	width: 100px;
+	box-shadow: inset 0px 1px 0px 0px #cf866c;
+	background-color: #d0451b;
+	border-radius: 3px;
+	border: 1px solid #942911;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 15px;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #854629;
+	text-transform: uppercase;
+}
+#update:hover {
+	background-color: #bc3315;
+}
+#update:active {
+	background-color: #942911;
+}*/
+
+button#update {
+    overflow: visible;
+    position: relative;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 110px;
+    font: 15px 'Segoe UI';
+    color: #fff;
+    text-transform: uppercase;
+    background: #d83c3c;
+    border-radius: 3px 3px 3px 3px;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+
+button#update:hover {     
+    background: #e54040;
+	outline: 0;	
+}   
+   
+button#update:active {
+    background: #c42f2f;
+	outline: 0;	
+}
+
+.operation {
+	width: 600px;
+	height: 100px;
+	margin: 200px auto 50px auto;
+}
+
+.toggler button {
+	color: #ddd;
+	padding: 10px 15px;
+	font-size: 18px;
+    border-radius: 10px 10px 0 0;
+	border-bottom: 0;
+	border: none;
+    /*box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);*/
+}
+.toggler button:active,
+.toggler button:focus {
+	outline: none;
+}
+
+.toggle_hidden {
+	background: rgba(0,0,0,.25);
+}
+.toggle_shown {
+	background: rgba(0,0,0,.5);
+}
+.hidden {
+	display: none;	
+}
+
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+ 
+.cf:after{
+    clear:both;
+}
+ 
+.cf{
+    zoom:1;
+}
+
+#search_icon {
+	float: left;
+	padding: 3px 8px 0 0;
+	-webkit-filter: invert();
+}
+/* Form wrapper styling */
+.form-wrapper {
+    width: 570px;
+    padding: 15px 15px 15px 10px;
+    background: rgba(0,0,0,.5); /*default opacity=.2*/
+    border-radius: 0 10px 10px 10px;
+    /*box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);*/
+}
+ 
+/* Form select text input */
+.form-wrapper select.select {
+    width: 145px;
+    height: 40px;
+    padding: 10px 5px;
+	margin: 0 5px 0 0;
+    float: left;    
+    font: 15px 'Segoe UI';
+	color: #999;
+	border:0;
+    background: #eee;
+    border-radius: 3px 0 0 3px;
+	cursor: pointer;
+}
+
+.form-wrapper select.select > option:first{
+	color: #999;
+}
+ 
+.form-wrapper select.select:focus {
+    outline: 0;
+    background: #fff;
+	color: black;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}    
+
+/* Form search text input */
+.form-wrapper input.srch {
+    width: 260px;
+    height: 20px;
+    padding: 10px 5px;
+    float: left;    
+    font: 15px 'Segoe UI';
+    border: 0;
+    background: #eee;
+}
+ 
+.form-wrapper input.srch:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+ 
+.form-wrapper input.srch::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+}
+ 
+.form-wrapper input.srch:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+}
+ 
+.form-wrapper input.srch:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+}
+ 
+/* Form submit button */
+.form-wrapper button[name="find"] {
+    overflow: visible;
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 110px;
+    font: 15px 'Segoe UI';
+    color: #fff;
+    text-transform: uppercase;
+    background: #d83c3c;
+    border-radius: 0 3px 3px 0;      
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}   
+   
+.form-wrapper button[name="find"]:hover{     
+    background: #e54040;
+}   
+   
+.form-wrapper button[name="find"]:active {
+    background: #c42f2f;
+    outline: 0;   
+}
+ 
+.form-wrapper button[name="find"]:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #d83c3c transparent;
+    top: 12px;
+    left: -6px;
+}
+ 
+.form-wrapper button[name="find"]:hover:before{
+    border-right-color: #e54040;
+}
+ 
+.form-wrapper button[name="find"]:focus:before,
+.form-wrapper button[name="find"]:active:before{
+    border-right-color: #c42f2f;
+}      
+ 
+.form-wrapper button[name="find"]::-moz-focus-inner { /* remove extra button[name="find"] spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+}
+
+/*ADD*/
+.form-wrapper input.fields {
+    width: 555px;
+    height: 20px;
+    padding: 10px 5px;
+	margin: 0 5px 5px 5px;  
+    font: 15px 'Segoe UI';
+	border:0;
+    background: #eee;
+    border-radius: 3px 3px 3px 3px;  
+}
+ 
+.form-wrapper input.fields:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+ 
+.form-wrapper input.fields::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+}
+ 
+.form-wrapper input.fields:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+}
+ 
+.form-wrapper input.fields:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+}
+
+.form-wrapper button[name="add"] {
+    overflow: visible;
+    position: relative;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 110px;
+    font: 15px 'Segoe UI';
+    color: #fff;
+    text-transform: uppercase;
+    background: #d83c3c;
+    border-radius: 3px 3px 3px 3px;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+	margin: 10px 5px 5px 5px;
+}
+
+.form-wrapper button[name="add"]:hover {     
+    background: #e54040;
+}   
+   
+.form-wrapper button[name="add"]:active {
+    background: #c42f2f;
+    outline: 0;   
+}
+
+.result_title {
+	font: 20px Segoe UI;
+	color: #ddd;
+	text-align: center;
+	padding: 5px;
+	width: auto;
+	margin: 0 150px 5px 150px;
+	background: rgba(255,0,0,0.5);
+	border-radius: 5px;
+}
+
+.query_results {
+	margin: 0px auto 50px auto;
+	padding: 0px;
+	width: 50%;
+}
+
+.query_results table{
+    border-collapse: collapse;
+    border-spacing: 0;
+	width: 100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+/*	border: 1px solid black;*/
+	-moz-border-radius-bottomleft:5px;
+	-webkit-border-bottom-left-radius:5px;
+	border-bottom-left-radius:5px;
+	
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-bottom-right-radius:5px;
+	border-bottom-right-radius:5px;
+	
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-right-radius:5px;
+	border-top-right-radius:5px;
+	
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-left-radius:5px;
+	border-top-left-radius:5px;
+}
+.query_results tr:last-child td:last-child {
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-bottom-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.query_results table tr:first-child td:first-child {
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-left-radius:5px;
+	border-top-left-radius:5px;
+}
+.query_results table tr:first-child td:last-child {
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-right-radius:5px;
+	border-top-right-radius:5px;
+}
+.query_results tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:5px;
+	-webkit-border-bottom-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+.query_results tr:hover td{
+	background: rgba(255,255,255,.7);
+}
+.query_results td{
+	vertical-align:middle;
+	
+	background: rgba(255,255,255,.5);
+
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding: 8px;
+	font-size:16px;
+	font-family: Segoe UI;
+	font-weight:normal;
+	color:#000000;
+}.query_results tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.query_results tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.query_results tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.query_results tr:first-child td{
+	background: rgba(0,0,0,0.5);
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size: 18px;
+	font-family: Arial;
+	color:#ddd;
+}
+.query_results tr:first-child:hover td{
+	background: rgba(0,0,0,0.7);
+}
+.query_results tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.query_results tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+
+button.done {
+	color: white;
+	font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #fff;
+	border-radius: 11px;
+	background: rgba(0,0,0,.5);
+	border: 1px solid black;
+	height: 22px;
+	width: 22px;
+	padding: 0 0 18px 1px;
+	margin-right: 5px;
+	outline: 0;	
+}
+button.done:hover,
+button.done:focus {
+	background: rgba(0,0,0,.7);
+}
+button.done:active {
+	background: rgba(0,255,0,.5);
+}
+
+.update_box {
+	background-color: rgba(0,0,0,0);
+}
+
+button.delete {
+	color: white;
+	font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #fff;
+	border-radius: 11px;
+	background: rgba(0,0,0,.5);
+	border: 1px solid black;
+	height: 22px;
+	width: 22px;
+	padding: 0 0 18px 1px;
+	outline: 0;
+}
+button.delete:hover,
+button.delete:focus {
+	background: rgba(0,0,0,.7);
+}
+button.delete:active {
+	background: rgba(255,0,0,.5);
+}
+
+/*.form-wrapper button[name="edit"] {
+    overflow: visible;
+    position: relative;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 110px;
+    font: 15px 'Segoe UI';
+    color: #fff;
+    text-transform: uppercase;
+    background: #d83c3c;
+    border-radius: 3px 3px 3px 3px;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+	margin: 5px;
+}
+
+.form-wrapper button[name="edit"]:hover {     
+    background: #e54040;
+}   
+   
+.form-wrapper button[name="edit"]:active {
+    background: #c42f2f;
+    outline: 0;   
+}*/
+#add {
+	float: right;
+	margin: 10px 0 0 0;
+	padding: 5px 10px;
+}

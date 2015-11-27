@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MySql" id="Project_74f590" html="y" template="Default" database="MySql" >
+	<schema name="blood donation club" catalogname="blood donation club" >
+		<table name="blood_sample" >
+			<column name="Blood_Type" type="varchar" length="4" decimal="0" jt="12" mandatory="y" />
+			<column name="Branch_Id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="Available" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="Requirement" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<defo>30</defo>
+			</column>
+			<index name="pk_blood_sample" unique="PRIMARY_KEY" >
+				<column name="Blood_Type" />
+				<column name="Branch_Id" />
+			</index>
+			<index name="Branch_Id" unique="NORMAL" >
+				<column name="Branch_Id" />
+			</index>
+			<fk name="blood_sample_ibfk_1" to_schema="blood donation club" to_table="branch" >
+				<fk_column name="Branch_Id" pk="B_Id" />
+			</fk>
+		</table>
+		<table name="branch" >
+			<column name="B_Id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="City" type="varchar" length="30" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_branch" unique="PRIMARY_KEY" >
+				<column name="B_Id" />
+			</index>
+		</table>
+		<table name="donor" >
+			<column name="D_Id" type="int" length="10" decimal="0" jt="4" mandatory="y" >
+				<comment><![CDATA[Donor ID]]></comment>
+			</column>
+			<column name="Name" type="varchar" length="50" decimal="0" jt="12" mandatory="y" />
+			<column name="Blood_type" type="varchar" length="4" decimal="0" jt="12" mandatory="y" />
+			<column name="Contact_no" type="bigint" length="19" decimal="0" jt="-5" mandatory="y" />
+			<column name="City" type="varchar" length="30" decimal="0" jt="12" mandatory="y" />
+			<column name="Last_donated" type="date" length="10" decimal="0" jt="91" mandatory="y" />
+			<index name="pk_donor" unique="PRIMARY_KEY" >
+				<column name="D_Id" />
+			</index>
+		</table>
+		<table name="message_log" >
+			<column name="donor_id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="Message" type="text" length="65535" decimal="0" jt="-1" mandatory="y" />
+			<column name="time" type="timestamp" length="19" decimal="0" jt="93" mandatory="y" >
+				<defo>CURRENT_TIMESTAMP</defo>
+			</column>
+		</table>
+		<table name="operator" >
+			<column name="O_Id" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="Name" type="varchar" length="50" decimal="0" jt="12" mandatory="y" />
+			<column name="Password" type="varchar" length="10" decimal="0" jt="12" mandatory="y" />
+			<column name="Contact_no" type="int" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="City" type="varchar" length="30" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_operator" unique="PRIMARY_KEY" >
+				<column name="O_Id" />
+			</index>
+		</table>
+		<procedure name="Set_requirements" id="Procedure_770072" isSystem="false" >
+			<string><![CDATA[CREATE PROCEDURE blood donation club.Set_requirements (  )
+BEGIN
+update blood_sample set requirement = 20 where blood_type in ('A+','B+','AB+');
+update blood_sample set requirement = 10 where blood_type in ('O-','A-','B-','AB-');
+update blood_sample set requirement = 30 where blood_type = 'O+';
+END]]></string>
+		</procedure>
+		<trigger name="New_donor" table="donor" id="Trigger_7700ba" isSystem="false" >
+			<string><![CDATA[CREATE TRIGGER New_donor AFTER INSERT ON donor FOR EACH ROW BEGIN
+update blood_sample set available = available+1 
+	where blood_type = (select blood_type from donor 
+		where D_Id = (select MAX(d_id) from donor));
+END;]]></string>
+		</trigger>
+	</schema>
+	<connector name="MySql" database="MySql" driver_class="com.mysql.jdbc.Driver" driver_jar="mysql-connector-java-5.1.34-bin.jar" host="localhost" port="3306" instance="blood donation club" user="root" schema_mapping="" />
+	<layout id="Layout_7739c8" name="blood donation club" show_relation_columns="y" >
+		<entity schema="blood donation club" name="blood_sample" color="b3ccf5" x="165" y="240" />
+		<entity schema="blood donation club" name="branch" color="b3ccf5" x="45" y="240" />
+		<entity schema="blood donation club" name="message_log" color="b3ccf5" x="315" y="240" />
+		<entity schema="blood donation club" name="donor" color="b3ccf5" x="165" y="45" />
+	</layout>
+</project>
